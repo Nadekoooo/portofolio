@@ -89,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Section 2: Featured Notebooks */}
-      <section className="flex h-screen w-full snap-start snap-always flex-col justify-center bg-zinc-900/20 px-4 py-16 md:px-20">
+      <section className="flex h-screen w-full snap-start snap-always flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
         <div className="mx-auto w-full max-w-7xl">
           {/* Header */}
           <div className="mb-12">
@@ -112,7 +112,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link href={`/notebooks/${notebook.slug}`}>
-                  <Card className="group h-full border-white/5 bg-zinc-900/40 backdrop-blur transition-all duration-300 hover:border-white/20 hover:bg-zinc-800/60">
+                  <Card className="group h-full border-border bg-card transition-all duration-300 hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm">
                     <CardHeader>
                       <CardTitle className="line-clamp-2 text-xl transition-colors group-hover:text-primary">
                         {notebook.title}
@@ -175,7 +175,7 @@ export default function Home() {
                   href={paper.pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block rounded-lg border border-transparent p-6 transition-all hover:border-primary/20 hover:bg-muted/30"
+                  className="group block rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
                 >
                   <h3 className="mb-3 font-serif text-2xl font-semibold leading-tight transition-colors group-hover:text-primary md:text-3xl">
                     {paper.title}
@@ -204,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Professional Experience */}
-      <section className="flex h-screen w-full snap-start snap-always flex-col justify-center bg-zinc-900/20 px-4 py-16 md:px-20">
+      <section className="flex h-screen w-full snap-start snap-always flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
         <div className="mx-auto w-full max-w-5xl">
           {/* Header */}
           <div className="mb-12">
@@ -225,7 +225,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative rounded-lg border border-white/5 bg-zinc-900/40 p-6 backdrop-blur transition-all duration-300 hover:border-white/20 hover:bg-zinc-800/60"
+                className="group relative rounded-lg border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
               >
                 <div className="flex items-start gap-4">
                   {/* Company Logo */}

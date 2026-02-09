@@ -2,7 +2,6 @@
 
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -75,11 +74,11 @@ export function NotebookRenderer({ data }: NotebookRendererProps) {
           )}
 
           {cell.cell_type === "code" && (
-            <div className="rounded-lg border border-border/50 bg-muted/30 overflow-hidden">
+            <div className="rounded-lg border border-border bg-muted/50 overflow-hidden">
               {/* Code Input */}
               <div className="flex">
                 {/* Execution Count */}
-                <div className="flex-shrink-0 w-16 bg-zinc-900/40 px-3 py-3 text-right">
+                <div className="shrink-0 w-16 bg-muted px-3 py-3 text-right">
                   <span className="text-xs font-mono text-muted-foreground">
                     {cell.execution_count !== null && cell.execution_count !== undefined
                       ? `[${cell.execution_count}]:`
@@ -88,16 +87,14 @@ export function NotebookRenderer({ data }: NotebookRendererProps) {
                 </div>
 
                 {/* Code Block */}
-                <div className="flex-1 overflow-x-auto">
+                <div className="flex-1 overflow-x-auto p-4">
                   <SyntaxHighlighter
                     language="python"
-                    style={oneDark}
-                    customStyle={{
-                      margin: 0,
-                      borderRadius: 0,
-                      background: "transparent",
-                      fontSize: "0.875rem",
+                    useInlineStyles={false}
+                    codeTagProps={{
+                      className: "text-sm font-mono text-foreground bg-transparent",
                     }}
+                    customStyle={{ background: "transparent", margin: 0, padding: 0 }}
                     wrapLongLines={true}
                     showLineNumbers={false}
                   >
@@ -114,7 +111,7 @@ export function NotebookRenderer({ data }: NotebookRendererProps) {
                       {/* Stream Output (stdout/stderr) */}
                       {output.output_type === "stream" && (
                         <div className="flex">
-                          <div className="w-16 flex-shrink-0" />
+                          <div className="w-16 shrink-0" />
                           <pre className="flex-1 overflow-x-auto px-4 py-3 text-sm font-mono text-foreground">
                             {sourceToString(output.text || "")}
                           </pre>
@@ -125,7 +122,7 @@ export function NotebookRenderer({ data }: NotebookRendererProps) {
                       {(output.output_type === "execute_result" ||
                         output.output_type === "display_data") && (
                         <div className="flex">
-                          <div className="w-16 flex-shrink-0" />
+                          <div className="w-16 shrink-0" />
                           <div className="flex-1 px-4 py-3">
                             {/* Image Output (PNG/JPEG) */}
                             {output.data?.["image/png"] && (
@@ -169,7 +166,7 @@ export function NotebookRenderer({ data }: NotebookRendererProps) {
                       {/* Error Output */}
                       {output.output_type === "error" && (
                         <div className="flex">
-                          <div className="w-16 flex-shrink-0" />
+                          <div className="w-16 shrink-0" />
                           <pre className="flex-1 overflow-x-auto px-4 py-3 text-sm font-mono text-destructive">
                             {output.traceback?.join("\n") || `${output.ename}: ${output.evalue}`}
                           </pre>
