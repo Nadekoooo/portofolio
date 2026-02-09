@@ -2,33 +2,53 @@ import type { WorkExperience } from "@/types";
 
 export const experiences: WorkExperience[] = [
   {
-    id: "exp-001",
-    role: "Data Science Intern",
-    company: "Tech Innovations Lab",
-    logo: "/images/company1.png",
-    date: "Jan 2024 - Present",
+    id: "exp-eth",
+    role: "AI Research Assistant",
+    company: "ETH Zürich",
+    logo: "/images/eth.png", // Ganti dengan path logo ETH Zürich yang benar
+    date: "Oct 2025 - Present",
     description:
-      "Developing machine learning models for predictive analytics on large-scale datasets. Collaborated with cross-functional teams to deploy data pipelines using Apache Spark and AWS. Presented weekly insights to senior management, influencing product strategy decisions.",
-    skills: ["Python", "TensorFlow", "AWS", "Tableau", "SQL", "Pandas"],
+      "Engineered micro-accurate Ground Truth datasets for Egocentric Video analysis, focusing on complex human-object interactions. Provided core datasets instrumental in securing publications at top-tier AI conferences like CVPR and ICCV.",
+    skills: ["Computer Vision", "Data Annotation", "Research", "Video Analysis"],
   },
   {
-    id: "exp-002",
-    role: "Research Assistant",
-    company: "University CS Department",
-    logo: "/images/company2.png",
-    date: "Sep 2023 - Dec 2023",
+    id: "exp-rti",
+    role: "AI Engineer Intern",
+    company: "RTI Infokom",
+    logo: "/images/rti.png", // Ganti dengan path logo RTI
+    date: "Jun 2025 - Aug 2025",
     description:
-      "Assisted Professor Chen in graph algorithm research, implementing novel subgraph isomorphism detection methods. Conducted literature reviews, ran benchmarks on multiple datasets, and co-authored a paper submitted to ICDE 2025. Managed a GitHub repository with reproducible experiments.",
-    skills: ["C++", "NetworkX", "LaTeX", "Git", "Data Structures"],
+      "Developed and deployed an intelligent RAG-based AI Agent system for RTI Business. Led research in stock market automation by integrating NLP-driven sentiment analysis with financial indicators for improved equity predictions.",
+    skills: ["RAG", "NLP", "LangChain", "Sentiment Analysis", "Financial Tech"],
   },
   {
-    id: "exp-003",
-    role: "Teaching Assistant - Intro to Algorithms",
-    company: "University CS Department",
-    logo: "/images/company2.png",
-    date: "Jan 2023 - May 2023",
+    id: "exp-ui-ai",
+    role: "Teaching Assistant - Intro to AI & Data Science",
+    company: "University of Indonesia",
+    logo: "/images/ui.png", // Ganti dengan path logo UI
+    date: "Jan 2025 - Present",
     description:
-      "Led weekly recitation sections for 40+ students, covering sorting algorithms, dynamic programming, and graph theory. Held office hours to provide one-on-one tutoring, graded assignments, and designed coding challenges. Received a 4.8/5.0 student evaluation rating.",
-    skills: ["Algorithms", "Teaching", "Python", "Communication", "Mentoring"],
+      "Mentored over 300 undergraduate students in foundational programming, Machine Learning basics, and AI concepts. Developed course materials, assisted in lectures, and provided personalized tutoring to ensure strong student comprehension.",
+    skills: ["Teaching", "Machine Learning", "Python", "Data Science", "Mentoring"],
+  },
+  {
+    id: "exp-compfest",
+    role: "AI Consultant",
+    company: "COMPFEST",
+    logo: "/images/compfest.png", // Ganti dengan path logo COMPFEST
+    date: "Jan 2025 - Sep 2025",
+    description:
+      "Served as the main consultant for the AI Innovation Challenge. Designed competition guidelines, defined evaluation criteria, and managed technical documentation for an AI-based competition involving 100+ teams and 300+ participants.",
+    skills: ["AI Strategy", "Consulting", "Event Management", "Technical Evaluation"],
+  },
+  {
+    id: "exp-ui-prog",
+    role: "Teaching Assistant - Programming Foundations",
+    company: "University of Indonesia",
+    logo: "/images/ui.png", // Ganti dengan path logo UI
+    date: "Jan 2025 - Present",
+    description:
+      "Supported the core Programming Basics (DDP) course for over 300 students. Assisted students in mastering foundational programming logic, syntax, and algorithmic thinking through interactive lab sessions and grading.",
+    skills: ["Programming Logic", "Python", "Java", "Algorithmic Thinking"],
   },
 ];

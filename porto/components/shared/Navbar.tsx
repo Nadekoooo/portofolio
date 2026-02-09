@@ -32,7 +32,7 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo / Brand */}
         <Link href="/" className="text-xl font-bold tracking-tight">
-          Portfolio
+          Nadekoooo | Nadecode
         </Link>
 
         {/* Desktop Navigation */}
