@@ -35,7 +35,7 @@ export default function Home() {
           >
             <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-primary/30">
               <Image
-                src={profile.avatarUrl}
+                src={profile.profPic}
                 alt={profile.name}
                 fill
                 className="object-cover"

@@ -9,6 +9,7 @@ My research focuses on Computer Vision and NLP, specifically in areas like domai
 
 Beyond research and development, I am deeply committed to education. As a Teaching Assistant for Intro to AI, Data Science, and Programming Foundations, I have mentored over 600 students, helping them master the building blocks of modern computing. I believe in the power of community and knowledge sharing, which drives my involvement as an AI Consultant for COMPFEST and as a Brand Ambassador for PANDI.`,
   avatarUrl: "/images/profile.jpg",
+  profPic: "/images/profilePic.png",
   socials: {
     github: "https://github.com/Nadekoooo",
     linkedin: "https://www.linkedin.com/in/christianyh",
