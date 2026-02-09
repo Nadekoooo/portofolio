@@ -1,8 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import { ArrowLeft, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { notebooks } from "@/data/notebooks";
+import { NotebookRenderer } from "@/components/notebook/NotebookRenderer";
 
 interface NotebookDetailPageProps {
   params: Promise<{
@@ -40,11 +43,23 @@ export default async function NotebookDetailPage({ params }: NotebookDetailPageP
     notFound();
   }
 
+  // Read the .ipynb file
+  const notebookPath = path.join(process.cwd(), "public", "notebooks", `${slug}.ipynb`);
+  
+  let notebookData;
+  try {
+    const fileContent = fs.readFileSync(notebookPath, "utf-8");
+    notebookData = JSON.parse(fileContent);
+  } catch (error) {
+    console.error(`Failed to load notebook: ${slug}`, error);
+    notFound();
+  }
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-screen">
       {/* Notebook Header */}
-      <div className="border-b bg-background">
-        <div className="container mx-auto flex h-14 items-center justify-between px-4">
+      <div className="sticky top-16 z-40 border-b bg-background/95 py-6 backdrop-blur supports-[backdrop-filter]:bg-background/95">
+        <div className="container mx-auto flex items-center justify-between px-4">
           <div className="flex items-center gap-4">
             <Button asChild variant="ghost" size="sm">
               <Link href="/notebooks">
@@ -70,14 +85,9 @@ export default async function NotebookDetailPage({ params }: NotebookDetailPageP
         </div>
       </div>
 
-      {/* Iframe Viewer */}
-      <div className="bg-white dark:bg-white">
-        <iframe
-          src={`/notebooks/${slug}.html`}
-          className="h-[calc(100vh-7.5rem)] w-full border-none"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          title={notebook.title}
-        />
+      {/* Notebook Renderer */}
+      <div className="pb-20 pt-16 px-4 md:px-8">
+        <NotebookRenderer data={notebookData} />
       </div>
     </div>
   );

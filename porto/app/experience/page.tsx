@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TimelineItem } from "@/components/experience/TimelineItem";
 import { experiences } from "@/data/experience";
+import PageTransition from "@/components/shared/PageTransition";
 
 export const metadata: Metadata = {
   title: "Professional Experience",
@@ -10,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <div>
-      <div className="container mx-auto max-w-3xl py-12 px-4">
+    <PageTransition>
+      <div className="container mx-auto max-w-3xl px-4 py-12 pt-24 md:pt-28">
         {/* Header */}
         <div className="mb-12">
           <h1 className="mb-4 text-4xl font-bold tracking-tight">
@@ -43,6 +44,6 @@ export default function ExperiencePage() {
           </div>
         )}
       </div>
-    </div>
+    </PageTransition>
   );
 }

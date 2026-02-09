@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PaperEntry } from "@/components/research/PaperEntry";
 import { papers } from "@/data/papers";
+import PageTransition from "@/components/shared/PageTransition";
 
 export const metadata: Metadata = {
   title: "Publications",
@@ -25,8 +26,8 @@ export default function PublicationsPage() {
     .sort((a, b) => b - a);
 
   return (
-    <div>
-      <div className="container mx-auto max-w-3xl py-12 px-4">
+    <PageTransition>
+      <div className="container mx-auto max-w-3xl px-4 py-12 pt-24 md:pt-28">
         {/* Header */}
         <div className="mb-12">
           <h1 className="mb-4 text-4xl font-bold tracking-tight">Publications</h1>
@@ -58,6 +59,6 @@ export default function PublicationsPage() {
           </div>
         )}
       </div>
-    </div>
+    </PageTransition>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { NotebooksClient } from "./NotebooksClient";
+import PageTransition from "@/components/shared/PageTransition";
 
 export const metadata: Metadata = {
   title: "All Notebooks",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function NotebooksPage() {
-  return <NotebooksClient />;
+  return (
+    <PageTransition>
+      <NotebooksClient />
+    </PageTransition>
+  );
 }

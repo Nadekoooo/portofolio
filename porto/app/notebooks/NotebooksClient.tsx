@@ -17,7 +17,7 @@ export function NotebooksClient() {
 
   return (
     <div>
-      <div className="container mx-auto py-12 px-4">
+      <div className="container mx-auto px-4 py-12 pt-24 md:pt-28">
         <div className="mb-8">
           <h1 className="mb-4 text-4xl font-bold tracking-tight">All Notebooks</h1>
           <p className="text-lg text-muted-foreground">
