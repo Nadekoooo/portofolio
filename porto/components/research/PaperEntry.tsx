@@ -16,10 +16,10 @@ export function PaperEntry({ paper }: PaperEntryProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <article className="group overflow-hidden rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-md">
+    <article className="group rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-md">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div className="flex-1">
-          <h3 className="mb-2 break-words font-serif text-xl font-bold leading-tight hyphens-auto md:text-2xl">
+          <h3 className="mb-2 break-words font-serif text-lg font-bold leading-tight hyphens-auto md:text-xl">
             {paper.title}
           </h3>
           <p className="mb-2 text-sm italic text-muted-foreground">

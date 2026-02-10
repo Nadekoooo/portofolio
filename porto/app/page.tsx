@@ -175,9 +175,9 @@ export default function Home() {
                   href={paper.pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block overflow-hidden rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
+                  className="group block rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
                 >
-                  <h3 className="mb-3 break-words font-serif text-xl font-semibold leading-tight tracking-tight hyphens-auto transition-colors group-hover:text-primary md:text-2xl">
+                  <h3 className="mb-3 break-words font-serif text-lg font-semibold leading-tight tracking-tight hyphens-auto transition-colors group-hover:text-primary md:text-xl">
                     {paper.title}
                   </h3>
                   <p className="mb-3 text-sm text-muted-foreground">
