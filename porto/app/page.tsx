@@ -181,7 +181,7 @@ export default function Home() {
                     {paper.title}
                   </h3>
                   <p className="mb-3 w-full break-words whitespace-normal text-sm text-muted-foreground hyphens-auto">
-                    {paper.authors.join(", ")} • <span className="font-medium">{paper.venue}</span> ({paper.year})
+                    {paper.authors.join(", ")} • <span className="font-medium break-words">{paper.venue}</span> ({paper.year})
                   </p>
                   <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
                     {paper.abstract}

@@ -26,7 +26,9 @@ export function PaperEntry({ paper }: PaperEntryProps) {
             {paper.authors.join(", ")}
           </p>
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="outline">{paper.venue}</Badge>
+            <span className="inline-flex h-auto w-fit items-center rounded-md border border-border bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground whitespace-normal break-words text-left leading-tight">
+              {paper.venue}
+            </span>
             <Badge variant="secondary">{paper.year}</Badge>
             {paper.featured && (
               <Badge variant="default">Featured</Badge>
