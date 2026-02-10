@@ -3,9 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
@@ -56,34 +55,40 @@ export function Navbar() {
         {/* Mobile Navigation */}
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-9 w-9">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[240px] sm:w-[280px]">
-              <nav className="flex flex-col gap-4 pt-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-foreground ${
-                      isActive(item.href)
-                        ? "text-foreground"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-9 w-9"
+            onClick={() => setOpen(!open)}
+          >
+            <Menu className="h-5 w-5" />
+            <span className="sr-only">Toggle menu</span>
+          </Button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {open && (
+        <div
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-8 bg-background/95 px-4 text-center backdrop-blur-xl md:hidden"
+          onClick={() => setOpen(false)}
+        >
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className={`text-2xl font-medium tracking-tight transition-colors hover:text-primary active:text-primary ${
+                isActive(item.href)
+                  ? "text-foreground"
+                  : "text-foreground/80"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

@@ -7,7 +7,7 @@ export const notebooks: NotebookProject[] = [
     description:
       "A comprehensive EDA using pandas and matplotlib to uncover patterns in global temperature anomalies, CO₂ emissions, and sea-level data spanning 1950–2024.",
     tags: ["Python", "Pandas", "Matplotlib", "EDA"],
-    slug: "analysis-1",
+    slug: "analysys-fin",
     date: "2025-11-15",
     featured: true,
     githubUrl: "https://github.com/username/climate-analysis",

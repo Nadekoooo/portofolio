@@ -70,7 +70,7 @@ export default function AboutPage() {
 
             {/* Download CV */}
             <Button asChild variant="default" size="lg" className="w-full">
-              <Link href="/cv.pdf" target="_blank">
+              <Link href="https://drive.google.com/file/d/1L08rZL_xBc4Czf3eUsNVu8GN3IO3DCfP/view?usp=sharing" target="_blank">
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
               </Link>

@@ -6,6 +6,7 @@ import { ArrowLeft, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { notebooks } from "@/data/notebooks";
 import { NotebookRenderer } from "@/components/notebook/NotebookRenderer";
+import PageTransition from "@/components/shared/PageTransition";
 
 interface NotebookDetailPageProps {
   params: Promise<{
@@ -56,7 +57,7 @@ export default async function NotebookDetailPage({ params }: NotebookDetailPageP
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <PageTransition className="flex min-h-screen flex-col">
       {/* Notebook Header */}
       <div className="sticky top-16 z-40 border-b bg-background/95 py-6 backdrop-blur supports-[backdrop-filter]:bg-background/95">
         <div className="container mx-auto flex items-center justify-between px-4">
@@ -89,6 +90,6 @@ export default async function NotebookDetailPage({ params }: NotebookDetailPageP
       <div className="pb-20 pt-16 px-4 md:px-8">
         <NotebookRenderer data={notebookData} />
       </div>
-    </div>
+    </PageTransition>
   );
 }

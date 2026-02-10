@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <main className="no-scrollbar h-screen w-full snap-y snap-mandatory scroll-smooth overflow-y-scroll">
       {/* Section 1: Hero */}
-      <section className="relative flex h-screen w-full snap-start snap-always flex-col items-center justify-center">
+      <section className="relative flex h-screen w-full snap-start flex-col items-center justify-center">
         {/* Background */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background to-background" />
         <div className="absolute left-1/2 top-1/3 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
@@ -89,15 +89,15 @@ export default function Home() {
       </section>
 
       {/* Section 2: Featured Notebooks */}
-      <section className="flex h-screen w-full snap-start snap-always flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
+      <section className="flex h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
         <div className="mx-auto w-full max-w-7xl">
           {/* Header */}
           <div className="mb-12">
             <h2 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">
-              Featured Analysis
+              Some Notebooks worth Read About
             </h2>
             <p className="text-lg text-muted-foreground">
-              Computational projects and data explorations
+              My Data science projects, AI Works, etc
             </p>
           </div>
 
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Section 3: Research Highlights */}
-      <section className="flex h-screen w-full snap-start snap-always flex-col justify-center px-4 py-16 md:px-20">
+      <section className="flex h-screen w-full snap-start flex-col justify-center px-4 py-16 md:px-20">
         <div className="mx-auto w-full max-w-5xl">
           {/* Header */}
           <div className="mb-12">
@@ -175,9 +175,9 @@ export default function Home() {
                   href={paper.pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
+                  className="group block overflow-hidden rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
                 >
-                  <h3 className="mb-3 font-serif text-2xl font-semibold leading-tight transition-colors group-hover:text-primary md:text-3xl">
+                  <h3 className="mb-3 break-words font-serif text-xl font-semibold leading-tight tracking-tight hyphens-auto transition-colors group-hover:text-primary md:text-2xl">
                     {paper.title}
                   </h3>
                   <p className="mb-3 text-sm text-muted-foreground">
@@ -204,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Professional Experience */}
-      <section className="flex h-screen w-full snap-start snap-always flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
+      <section className="flex h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
         <div className="mx-auto w-full max-w-5xl">
           {/* Header */}
           <div className="mb-12">
