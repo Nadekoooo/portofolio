@@ -63,10 +63,94 @@ export function NotebookRenderer({ data }: NotebookRendererProps) {
       {data.cells.map((cell, index) => (
         <div key={index} className="mb-6">
           {cell.cell_type === "markdown" && (
-            <div className="prose prose-zinc dark:prose-invert max-w-none">
+            <div className="prose prose-zinc dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeKatex]}
+                components={{
+                  // 1. Override Headings with better spacing and hierarchy
+                  h1: ({ node, ...props }) => (
+                    <h1 className="text-3xl font-bold tracking-tight mt-8 mb-4" {...props} />
+                  ),
+                  h2: ({ node, ...props }) => (
+                    <h2 className="text-2xl font-semibold tracking-tight mt-8 mb-4 border-b pb-2" {...props} />
+                  ),
+                  h3: ({ node, ...props }) => (
+                    <h3 className="text-xl font-semibold tracking-tight mt-6 mb-3" {...props} />
+                  ),
+                  
+                  // 2. Override Paragraphs for better readability
+                  p: ({ node, ...props }) => (
+                    <p className="leading-7 [&:not(:first-child)]:mt-6" {...props} />
+                  ),
+                  
+                  // 3. Override Code (Inline vs Block)
+                  code({ node, inline, className, children, ...props }: any) {
+                    const match = /language-(\w+)/.exec(className || "");
+                    // Inline Code (like `variable`)
+                    if (inline || !match) {
+                      return (
+                        <code 
+                          className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold text-foreground" 
+                          {...props}
+                        >
+                          {children}
+                        </code>
+                      );
+                    }
+                    // Block Code - standard styling
+                    return (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    );
+                  },
+
+                  // 4. Override Tables (Shadcn-style tables)
+                  table: ({ node, ...props }) => (
+                    <div className="my-6 w-full overflow-y-auto rounded-lg border">
+                      <table className="w-full text-sm" {...props} />
+                    </div>
+                  ),
+                  th: ({ node, ...props }) => (
+                    <th 
+                      className="border-b bg-muted/50 px-4 py-2 text-left font-medium [&[align=center]]:text-center [&[align=right]]:text-right" 
+                      {...props} 
+                    />
+                  ),
+                  td: ({ node, ...props }) => (
+                    <td 
+                      className="border-b px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right" 
+                      {...props} 
+                    />
+                  ),
+                  
+                  // 5. Override Images (Responsive)
+                  img: ({ node, ...props }) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img 
+                      className="rounded-md border bg-muted" 
+                      alt={props.alt || "Notebook Image"} 
+                      {...props} 
+                    />
+                  ),
+
+                  // 6. Override Lists for better spacing
+                  ul: ({ node, ...props }) => (
+                    <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />
+                  ),
+                  ol: ({ node, ...props }) => (
+                    <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />
+                  ),
+
+                  // 7. Override Blockquotes
+                  blockquote: ({ node, ...props }) => (
+                    <blockquote 
+                      className="mt-6 border-l-2 pl-6 italic text-muted-foreground" 
+                      {...props} 
+                    />
+                  ),
+                }}
               >
                 {sourceToString(cell.source)}
               </ReactMarkdown>
