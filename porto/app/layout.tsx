@@ -3,7 +3,6 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
-import BackgroundGlow from "@/components/shared/BackgroundGlow";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,7 +58,6 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <BackgroundGlow />
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>

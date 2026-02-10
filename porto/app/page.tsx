@@ -89,10 +89,10 @@ export default function Home() {
       </section>
 
       {/* Section 2: Featured Notebooks */}
-      <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-20 md:h-screen md:py-16 md:px-20">
-        <div className="mx-auto w-full max-w-7xl">
+      <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-transparent py-20 md:h-screen md:py-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-24">
           {/* Header */}
-          <div className="mb-12">
+          <div className="mb-12 text-left">
             <h2 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">
               Some Notebooks worth Read About
             </h2>
@@ -149,10 +149,10 @@ export default function Home() {
       </section>
 
       {/* Section 3: Research Highlights */}
-      <section className="flex min-h-screen w-full snap-start flex-col justify-center px-4 py-20 md:h-screen md:py-16 md:px-20">
-        <div className="mx-auto w-full max-w-5xl">
+      <section className="flex min-h-screen w-full snap-start flex-col justify-center py-20 md:h-screen md:py-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-24">
           {/* Header */}
-          <div className="mb-12">
+          <div className="mb-12 text-left">
             <h2 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">
               Publications
             </h2>
@@ -204,10 +204,10 @@ export default function Home() {
       </section>
 
       {/* Section 4: Professional Experience */}
-      <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-20 md:h-screen md:py-16 md:px-20">
-        <div className="mx-auto w-full max-w-5xl">
+      <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-transparent py-20 md:h-screen md:py-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-24">
           {/* Header */}
-          <div className="mb-12">
+          <div className="mb-12 text-left">
             <h2 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">
               Experience
             </h2>
