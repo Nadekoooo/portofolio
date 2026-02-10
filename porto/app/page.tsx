@@ -287,6 +287,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Footer - Final Snap Point */}
+      <footer className="w-full snap-end bg-background/50 backdrop-blur-sm border-t border-border/40 py-8">
+        <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row px-6 text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} Christian Yudistira. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+            <Link href="/about" className="hover:text-foreground transition-colors">
+              About
+            </Link>
+            <Link href="/notebooks" className="hover:text-foreground transition-colors">
+              Notebooks
+            </Link>
+            <Link href="/publications" className="hover:text-foreground transition-colors">
+              Research
+            </Link>
+            <Link href="/experience" className="hover:text-foreground transition-colors">
+              Experience
+            </Link>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
