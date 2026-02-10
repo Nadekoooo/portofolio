@@ -89,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Section 2: Featured Notebooks */}
-      <section className="flex h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
+      <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-20 md:h-screen md:py-16 md:px-20">
         <div className="mx-auto w-full max-w-7xl">
           {/* Header */}
           <div className="mb-12">
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Section 3: Research Highlights */}
-      <section className="flex h-screen w-full snap-start flex-col justify-center px-4 py-16 md:px-20">
+      <section className="flex min-h-screen w-full snap-start flex-col justify-center px-4 py-20 md:h-screen md:py-16 md:px-20">
         <div className="mx-auto w-full max-w-5xl">
           {/* Header */}
           <div className="mb-12">
@@ -180,8 +180,8 @@ export default function Home() {
                   <h3 className="mb-3 break-words whitespace-normal font-serif text-lg font-semibold leading-tight tracking-tight hyphens-auto transition-colors group-hover:text-primary md:text-xl">
                     {paper.title}
                   </h3>
-                  <p className="mb-3 text-sm text-muted-foreground">
-                    {paper.authors.join(", ")} • {paper.venue} ({paper.year})
+                  <p className="mb-3 break-words text-sm text-muted-foreground">
+                    {paper.authors.join(", ")} • <span className="font-medium">{paper.venue}</span> ({paper.year})
                   </p>
                   <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
                     {paper.abstract}
@@ -204,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Professional Experience */}
-      <section className="flex h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-16 md:px-20">
+      <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-secondary/30 px-4 py-20 md:h-screen md:py-16 md:px-20">
         <div className="mx-auto w-full max-w-5xl">
           {/* Header */}
           <div className="mb-12">

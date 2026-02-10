@@ -70,7 +70,7 @@ export function Navbar() {
       {/* Mobile Menu Overlay */}
       {open && (
         <div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-8 bg-background px-4 text-center backdrop-blur-xl md:hidden"
+          className="fixed inset-0 z-[100] flex h-[100dvh] flex-col items-center justify-center gap-8 overflow-y-auto bg-background px-4 text-center backdrop-blur-xl md:hidden"
           onClick={() => setOpen(false)}
         >
           {navItems.map((item) => (
