@@ -19,10 +19,10 @@ export function PaperEntry({ paper }: PaperEntryProps) {
     <article className="group rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-md">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
-          <h3 className="mb-2 break-words whitespace-normal font-serif text-lg font-bold leading-tight hyphens-auto md:text-xl">
+          <h3 className="mb-2 w-full break-words whitespace-normal font-serif text-lg font-bold leading-tight hyphens-auto md:text-xl">
             {paper.title}
           </h3>
-          <p className="mb-2 text-sm italic text-muted-foreground">
+          <p className="mb-2 w-full break-words whitespace-normal text-sm italic text-muted-foreground hyphens-auto">
             {paper.authors.join(", ")}
           </p>
           <div className="flex flex-wrap items-center gap-2">
