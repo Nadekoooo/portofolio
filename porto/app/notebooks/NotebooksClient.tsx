@@ -46,7 +46,7 @@ export function NotebooksClient() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredNotebooks.map((notebook) => (
             <Link key={notebook.id} href={`/notebooks/${notebook.slug}`}>
-              <Card className="h-full transition-shadow hover:shadow-lg">
+              <Card className="flex h-full flex-col transition-shadow hover:shadow-lg">
                 <CardHeader>
                   <div className="mb-2 flex items-start justify-between gap-2">
                     <CardTitle className="line-clamp-2">{notebook.title}</CardTitle>
@@ -60,7 +60,7 @@ export function NotebooksClient() {
                     {notebook.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <div className="mb-3 flex flex-wrap gap-2">
                     {notebook.tags.map((tag) => (
                       <Badge key={tag} variant="secondary">

@@ -7,6 +7,7 @@ import { profile } from "@/data/profile";
 import { notebooks } from "@/data/notebooks";
 import { papers } from "@/data/papers";
 import { experiences } from "@/data/experience";
+import { awards } from "@/data/awards";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ export default function Home() {
   const featuredNotebooks = notebooks.filter((n) => n.featured).slice(0, 3);
   const featuredPapers = papers.filter((p) => p.featured).slice(0, 2);
   const recentExperiences = experiences.slice(0, 3);
+  const featuredAwards = awards.slice(0, 3); // Show top 3 awards
 
   return (
     <main className="no-scrollbar h-screen w-full snap-y snap-mandatory scroll-smooth overflow-y-scroll">
@@ -112,7 +114,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link href={`/notebooks/${notebook.slug}`}>
-                  <Card className="group h-full border-border bg-card transition-all duration-300 hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm">
+                  <Card className="group flex h-full flex-col border-border bg-card transition-all duration-300 hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm">
                     <CardHeader>
                       <CardTitle className="line-clamp-2 text-xl transition-colors group-hover:text-primary">
                         {notebook.title}
@@ -121,7 +123,7 @@ export default function Home() {
                         {notebook.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="mt-auto">
                       <div className="flex flex-wrap gap-2">
                         {notebook.tags.slice(0, 3).map((tag) => (
                           <Badge key={tag} variant="secondary" className="text-xs">
@@ -148,7 +150,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 3: Research Highlights */}
+      {/* Section 3: Honors & Awards */}
+      <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-transparent py-20 md:h-screen md:py-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-24">
+          {/* Header */}
+          <div className="mb-12 text-left">
+            <h2 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">
+              Honors & Awards
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Recognition for excellence in data science competitions
+            </p>
+          </div>
+
+          {/* Awards Grid */}
+          <div className="grid gap-6 md:grid-cols-3">
+            {featuredAwards.map((award, index) => (
+              <motion.div
+                key={award.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow transition-all duration-300 hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
+              >
+                {/* Image Container */}
+                <div className="relative aspect-video w-full overflow-hidden bg-muted">
+                  <Image 
+                    src={award.imageUrl} 
+                    alt={award.title} 
+                    fill 
+                    className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                  />
+                  {/* Award Badge Overlay */}
+                  <div className="absolute left-3 top-3 rounded-full bg-primary/90 px-3 py-1 text-xs font-semibold text-primary-foreground backdrop-blur-sm">
+                    {award.award}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="text-xs font-medium text-muted-foreground">{award.organizer}</span>
+                    <span className="text-xs text-muted-foreground">{award.date}</span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold leading-tight transition-colors group-hover:text-primary">{award.title}</h3>
+                  <p className="line-clamp-2 text-sm text-muted-foreground">{award.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-8 flex justify-start">
+            <Button asChild variant="outline" size="lg">
+              <Link href="/awards">
+                View All Awards
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Research Highlights */}
       <section className="flex min-h-screen w-full snap-start flex-col justify-center py-20 md:h-screen md:py-16">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-24">
           {/* Header */}
@@ -203,7 +268,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 4: Professional Experience */}
+      {/* Section 5: Professional Experience */}
       <section className="flex min-h-screen w-full snap-start flex-col justify-center bg-transparent py-20 md:h-screen md:py-16">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-24">
           {/* Header */}
