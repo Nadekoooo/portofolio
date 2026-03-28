@@ -28,7 +28,7 @@ export default function AwardsPage() {
           {awards.map((award) => (
             <div
               key={award.id}
-              className="group relative overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow transition-all duration-300 hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
+              className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow transition-all duration-300 hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm"
             >
               {/* Image Container */}
               <div className="relative aspect-video w-full overflow-hidden bg-muted">
@@ -51,7 +51,7 @@ export default function AwardsPage() {
                   <span className="text-xs text-muted-foreground">{award.date}</span>
                 </div>
                 <h3 className="mb-2 text-lg font-bold leading-tight transition-colors group-hover:text-primary">{award.title}</h3>
-                <p className="line-clamp-2 text-sm text-muted-foreground">{award.description}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{award.description}</p>
               </div>
             </div>
           ))}
